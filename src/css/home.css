@@ -1,0 +1,188 @@
+@font-face {
+  font-family: "Metropolis";
+  src: local("Metropolis"), url("../fonts/Metropolis-Medium.otf");
+}
+
+.home {
+  font-family: "Metropolis";
+}
+
+.content {
+  box-shadow: 0px 0px 23px 1px rgba(0, 0, 0, 0.15);
+  margin: 10px 10px;
+  padding: 7px 10px;
+  border-radius: 15px;
+}
+
+.row1 {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.miniwrapper {
+  margin: auto;
+  max-width: 1500px;
+}
+
+.row2 {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.spacer {
+  height: 100px;
+}
+
+.logo {
+  margin-right: -20px;
+  margin-top: -5px;
+  font-size: 10px;
+}
+
+.img2 {
+  margin-top: 40px;
+  border: solid grey 1px;
+  border-radius: 10px;
+  width: 40%;
+  height: 40%;
+  min-width: 500px;
+
+}
+
+.img3 {
+  width: 60%;
+  min-width: 600px;
+  border-radius: 10px;
+  border-radius: 10px;
+}
+
+.img1 {
+  width: 40%;
+  min-width: 500px;
+}
+
+/* "open zoom links quickly" */
+.pane2 {
+  height: 450px;
+  color: black;
+  background: #f2f3f4;
+  padding: 20px 20px;
+  margin: -8px;
+}
+
+
+/* "dark mode" */
+.pane3 {
+  height: 500px;
+  color: white;
+  background: #2f3137;
+  padding: 20px 20px;
+  margin: -8px;
+}
+
+/* open sourced */
+.pane4 {
+  height: 400px;
+  color: black;
+  background: #f2f3f4;
+  padding: 20px 20px;
+  margin: -8px;
+}
+
+
+/* secure and private */
+.pane5 {
+  height: 400px;
+  color: black;
+  background: white;
+  padding: 20px 20px;
+  margin: -8px;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+  .img1 {
+    width: 60%;
+  }
+
+  .img3 {
+    width: 70%;
+  }
+
+
+
+  .dark-mode {
+    height: 550px;
+  }
+}
+
+.routerLink {
+  color: #2e8cff;
+  text-decoration: none;
+}
+
+a {
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  transform: scale(1.06);
+}
+
+.round-button-filled {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  text-align: center;
+  background-color: #2e8cff;
+  width: 140px;
+  border-radius: 40px;
+  height: 30px;
+  padding: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.round-button {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  text-align: center;
+  border: 2px solid #2e8cff;
+  width: 140px;
+  border-radius: 40px;
+  height: 30px;
+  padding: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.round-button:hover {
+  transform: scale(1.02);
+}
+
+.title {
+  margin-left: -2px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 20px;
+  padding-bottom: 15px;
+  color: grey;
+}
+
+.topnav a {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav-right {
+  float: right;
+}
