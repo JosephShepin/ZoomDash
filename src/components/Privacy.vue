@@ -31,8 +31,7 @@
             href="https://github.com/jshepin/ZoomDash"
             target="_blank"
             class="round-button"
-            @mouseenter="hover = true"
-            @mouseleave="hover = false"
+            @="hover = true"
           >
             <div
               style="
@@ -41,7 +40,6 @@
                 top: 8px;
                 font-weight: 500;
               "
-              :style="{ transform: hover ? 'scale(1.05)' : 'scale(1.0)' }"
             >
               View on github
             </div>
