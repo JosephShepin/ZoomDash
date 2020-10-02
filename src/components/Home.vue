@@ -42,7 +42,37 @@
               />
             </div>
           </router-link>
+<br>
+          <br />
+          <div class="" style="disply: flex">
+            <img
+              class=""
+              style="padding-right: 20px"
+              src="../static/windows.png"
+              width="40"
+            />
+            <img
+              class=""
+              style="padding-right: 20px"
+              src="../static/mac.png"
+              width="40"
+            />
+            <img
+              class=""
+              style="padding-right: 20px"
+              src="../static/browser.png"
+              width="40"
+            />
+            <img
+              class=""
+              style="padding-right: 20px"
+              src="../static/linux.png"
+              width="40"
+            />
+          </div>
         </div>
+
+        <br />
         <img class="img1" src="../static/img1.png" />
       </div>
       <br />
@@ -84,7 +114,7 @@
         </div>
       </div>
     </div>
-<br>
+    <br />
     <div class="row1 miniwrapper">
       <git-card style="flex: 1; min-width: 400px" />
 

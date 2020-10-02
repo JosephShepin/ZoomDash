@@ -114,6 +114,13 @@
   }
 
 
+  .pane2 {
+    height: 630px;
+  
+  }
+
+  
+
 
   .dark-mode {
     height: 550px;
@@ -155,6 +162,20 @@ a:hover {
   width: 140px;
   border-radius: 40px;
   height: 30px;
+  padding: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.round-button-small {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  text-align: center;
+  border: 2px solid #2e8cff;
+  width: 100px;
+  border-radius: 40px;
+  height: 25px;
   padding: 5px;
   transition: all 0.2s ease-in-out;
 }

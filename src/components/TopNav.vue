@@ -11,6 +11,9 @@
       <router-link class="routerLink" to="/privacy" style="margin-top:-5px">
         <a :style="{ color: light ? 'black' : 'white' }">Privacy</a>
       </router-link>
+        <router-link class="routerLink" to="/install" style="margin-top:-5px; margin-left:-10px;">
+        <a :style="{ color: light ? 'black' : 'white' }">Install</a>
+      </router-link>
     </div>
     <div class="topnav-right">
       <div v-if="showApp">
