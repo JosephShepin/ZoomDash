@@ -18,7 +18,6 @@ export default new Router({
     { path: '/app', component: Main },
     { path: '/privacy', component: Privacy },
     { path: '/install', component: Install },
-
     { path: '*', component: NotFound }
 
   ]
