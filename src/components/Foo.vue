@@ -17,7 +17,7 @@
     >
       <InstallCard
         class="col"
-        style="border-color:#2e8cff;"
+        style="border-color: #2e8cff"
         buttonLabel="Open"
         title="Browser"
         v-on:download="$router.push('app')"
@@ -25,8 +25,7 @@
       />
       <InstallCard
         class="col"
-                style="border-color:#2e8cff	;"
-
+        style="border-color: #2e8cff"
         buttonLabel="Download"
         notes="Make sure to right click > open, then drag into applications folder"
         title="Mac"
@@ -36,18 +35,16 @@
 
       <InstallCard
         class="col"
-                style="border-color:#2e8cff	
-;"
-
-        buttonLabel="Coming soon"
+        v-on:download="downloadWin()"
+        style="border-color: #2e8cff"
+        buttonLabel="Download"
         title="Windows"
         image="windows"
       />
 
       <InstallCard
         class="col"
-                style="border-color:#2e8cff;"
-
+        style="border-color: #2e8cff"
         buttonLabel="Coming Soon"
         title="Linux"
         image="linux"
@@ -92,6 +89,11 @@ export default {
         "https://storage.googleapis.com/zoomdashdownloads/Dash-macOS.zip"
       );
     },
+    downloadWin() {
+      window.open(
+        "https://storage.googleapis.com/zoomdashdownloads/Dash-Win.zip"
+      );
+    },
   },
 };
 </script>
@@ -105,7 +107,7 @@ export default {
 }
 
 .col {
-    border: 1px solid;
+  border: 1px solid;
   flex: 1 1 300px;
   padding: 15px 15px 20px 15px;
   border-radius: 5px;
