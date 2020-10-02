@@ -4,7 +4,7 @@ import vClickOutside from 'v-click-outside'
 import Privacy from '../components/Privacy.vue'
 import Home from '../components/Home.vue'
 import Main from '../components/Main.vue'
-// import Install from '../components/Install.vue'
+import Install from '../components/Install.vue'
 import NotFound from '../components/404.vue'
 
 Vue.use(vClickOutside)
