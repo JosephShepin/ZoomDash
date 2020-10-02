@@ -38,6 +38,8 @@
         v-on:download="downloadWin()"
         style="border-color: #2e8cff"
         buttonLabel="Download"
+                notes="To access, unzip, drag the icon into your task bar or right click > create a shortcut"
+
         title="Windows"
         image="windows"
       />
