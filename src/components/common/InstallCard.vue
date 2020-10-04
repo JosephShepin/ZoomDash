@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+<div class="" style="flex-basis: 150px;">
     <img :src="require(`../../static/${image}.png`)" width="50" />
     <br />
     <br />
@@ -9,7 +9,7 @@
     <br />
 
     <div v-if="image == 'mac' || image == 'windows'">
-      <div @click="$router.push('gif/'+image)">
+      <div @click="router.push('gif/'+image)">
         <img
           @mouseenter="hover = true"
           @mouseleave="hover = false"

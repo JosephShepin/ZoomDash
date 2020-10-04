@@ -1,5 +1,5 @@
 <template>
-  <div class="" style="font-family: 'Metropolis'; text-align: center">
+  <div class="" style="font-family: 'Metropolis'; text-align: center;">
     <top-nav />
     <br />
 
@@ -17,7 +17,6 @@
     >
       <InstallCard
         class="col"
-        style="border-color: #2e8cff"
         buttonLabel="Open"
         notes="No download needed"
         title="Browser"
@@ -26,7 +25,6 @@
       />
       <InstallCard
         class="col"
-        style="border-color: #2e8cff"
         buttonLabel="Download"
         title="Mac"
         v-on:download="downloadMac()"
@@ -36,19 +34,17 @@
       <InstallCard
         class="col"
         v-on:download="downloadWin()"
-        style="border-color: #2e8cff"
         buttonLabel="Download"
         title="Windows"
         image="windows"
       />
 
-      <InstallCard
+      <!-- <InstallCard
         class="col"
-        style="border-color: #2e8cff"
         buttonLabel="Coming Soon"
         title="Linux"
         image="linux"
-      />
+      /> -->
     </div>
   </div>
 </template>
@@ -107,10 +103,11 @@ export default {
 }
 
 .col {
-  border: 1px solid;
+  box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.08);
+
   flex: 1 1 300px;
   padding: 15px 15px 20px 15px;
-  border-radius: 5px;
+  border-radius: 10px;
 
   margin: 5px;
 }
