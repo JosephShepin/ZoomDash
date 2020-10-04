@@ -1,11 +1,6 @@
 <template >
   <div class="main">
-    <top-nav
-      :showApp="false"
-      :showLeft="false"
-      :light="light"
-      v-on:toggle="light = !light"
-    />
+    <top-nav :showApp="false" :showLeft="false" :light="light" v-on:toggle="light = !light" />
     <div id="app" style>
       <!--<p>all classes {{classes}}</p>
       <p>sorted classes {{sortedClasses}}</p>
@@ -20,11 +15,7 @@
         }"
       />
       <br />
-      <add-modal
-        :light="light"
-        :newClass="defaultClass"
-        v-on:create-class="createClass($event)"
-      />
+      <add-modal :light="light" :newClass="defaultClass" v-on:create-class="createClass($event)" />
       <div class style="margin: 5px 15px">
         <div
           v-if="!confirm"
@@ -50,27 +41,19 @@
                     class="time-label"
                     @click="todayView = true"
                     :style="{ color: label1Color }"
-                  >
-                    Today
-                  </div>
+                  >Today</div>
                   <div
                     style="margin-left: 3px"
                     class="time-label"
                     :style="{ color: label2Color }"
                     @click="todayView = false"
-                  >
-                    All
-                  </div>
+                  >All</div>
                 </div>
               </div>
             </div>
             <div v-if="classes.length == 0">
               <br />
-              <img
-                class="image-center"
-                width="50"
-                :src="require(`../static/${getImage()}`)"
-              />
+              <img class="image-center" width="50" :src="require(`../static/${getImage()}`)" />
               <br />
               <div class="welcome">Welcome, get started by adding a class</div>
 
@@ -84,21 +67,14 @@
             >
               <br />
 
-              <img
-                class="image-center"
-                width="50"
-                :src="require(`../static/${getImage()}`)"
-              />
+              <img class="image-center" width="50" :src="require(`../static/${getImage()}`)" />
               <br />
 
               <div class="welcome">All clear, nothing upcoming today</div>
 
               <br />
             </div>
-            <div
-              v-for="c in todayView ? todayClasses : orderedClasses"
-              :key="c.id"
-            >
+            <div v-for="c in todayView ? todayClasses : orderedClasses" :key="c.id">
               <class-card
                 :timeLabel="
                   todayClasses.includes(c)
@@ -147,14 +123,14 @@
             }"
           >
             <div class="confirm-div">
-              <div class="" style="font-size: 35px; padding: 6px 0px">
+              <div class style="font-size: 35px; padding: 6px 0px">
                 {{
-                  todayClasses.includes(selectedCourse)
-                    ? dateDifference(
-                        convertToDate(selectedCourse),
-                        selectedCourse
-                      )
-                    : nothingLabel
+                todayClasses.includes(selectedCourse)
+                ? dateDifference(
+                convertToDate(selectedCourse),
+                selectedCourse
+                )
+                : nothingLabel
                 }}
               </div>
 
@@ -168,17 +144,10 @@
                   color: grey;
                   padding: 10px 0px;
                 "
-              >
-                {{ dateString() }}
-              </div>
+              >{{ dateString() }}</div>
               <br />
               <div class="join-meeting">
-                <div
-                  class
-                  style="position: relative; top: 12px; font-size: 17px"
-                >
-                  Join Meeting
-                </div>
+                <div class style="position: relative; top: 12px; font-size: 17px">Join Meeting</div>
               </div>
             </div>
           </div>
@@ -188,9 +157,7 @@
             class="dismiss"
             @click="confirm = false"
             :style="{ color: light ? 'gray' : 'white' }"
-          >
-            Dismiss
-          </div>
+          >Dismiss</div>
         </div>
       </div>
     </div>
@@ -222,10 +189,11 @@ class Class {
 
 export default {
   name: "Main",
-  data: function () {
+  data: function() {
     return {
       nothingLabel: "",
       light: true,
+      showNotification: true,
       last: [],
       todayView: true,
       count: 0,
@@ -234,10 +202,10 @@ export default {
       confirm: false,
       viewType: 0,
       icons: {
-        faTimes,
+        faTimes
       },
       classes: [],
-      defaultClass: new Class("", "", [1, 1, 1, 1, 1, 0, 0], 12, 0, true, 0),
+      defaultClass: new Class("", "", [1, 1, 1, 1, 1, 0, 0], 12, 0, true, 0)
     };
   },
   components: {
@@ -246,7 +214,7 @@ export default {
     SettingsModal,
     HeaderBar,
     FontAwesomeIcon,
-    TopNav,
+    TopNav
   },
 
   destroyed() {
@@ -349,21 +317,21 @@ export default {
         }
       }
       return futureClasses;
-    },
+    }
   },
   watch: {
     classes: {
       handler() {
         localStorage.setItem("classes", JSON.stringify(this.classes));
       },
-      deep: true,
+      deep: true
     },
     light: {
       handler() {
         localStorage.setItem("light-mode", JSON.stringify(this.light));
       },
-      deep: true,
-    },
+      deep: true
+    }
   },
 
   mounted() {
@@ -392,7 +360,6 @@ export default {
 
     dateDifference(end, c) {
       var now = new Date();
-      // var end = new Date("End Time");
       var total = end - now;
 
       var totalD = Math.abs(Math.floor(total / 1000));
@@ -438,8 +405,6 @@ export default {
       var S = `${seconds < 10 ? "0" : ""}${seconds}`;
 
       if (
-        // years == 0 &&
-        // months == 0 &&
         days == 0 &&
         hours == 0 &&
         minutes == 0 &&
@@ -447,9 +412,39 @@ export default {
       ) {
         this.selectedCourse = c;
         this.launchConfirm();
-        // this.todayView.remove(c)
+
+        if (this.showNotification) {
+          const notification = {
+            title: "Join " + c.name,
+            options: {
+              body: "Click to open zoom"
+            },
+            events: {
+              onerror: function() {
+                console.log("Custom error event was called");
+              },
+              onclick: () => {
+                this.confirm = false;
+                window.open(c.link);
+                console.log("Custom click event was called");
+              },
+              onshow: function() {
+                console.log("Custom show event was called");
+              }
+            }
+          };
+          console.log("showing notification");
+          this.$notification.show(
+            notification.title,
+            notification.options,
+            notification.events
+          );
+          this.showNotification = false;
+        } else {
+        }
         return "OPEN";
       }
+      this.showNotification = true;
       if (end < now) {
         // return ""
         return "-";
@@ -567,8 +562,8 @@ export default {
     },
     changeInformation(event) {
       this.viewType = event;
-    },
-  },
+    }
+  }
 };
 </script>
 

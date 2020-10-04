@@ -1,10 +1,11 @@
 <template>
-  <div class="main">
+  <div class="main" >
     <top-nav :showApp="true" :showLeft="true" />
     <br>
     <div v-if="name == 'mac'">
       <div class="">
         <h1 style="margin-bottom: 10px; margin-top:-10px;">macOS download</h1>
+        <br>
         <div class="step">1. Unzip Folder</div>
         <div class="step">2. Right Click > Open and cancel</div>
         <div class="step">3. Right Click Again > Open > Open</div>
@@ -14,6 +15,7 @@
     <div v-else>
       <div class="">
         <h1 style="margin-bottom: 10px; margin-top:-10px;">Windows download</h1>
+        <br>
         <div class="step">1. Unzip Folder</div>
         <div class="step">2. Open "Dash-Win" folder</div>
         <div class="step">3. Open "Dash" application</div>
@@ -28,7 +30,7 @@
     <img
       @mouseenter="hover = true"
       @mouseleave="hover = false"
-      style="border-radius: 5px; width: 100%"
+      style="border-radius: 5px; width: 100%; max-width:1000px;"
       :src="require(`../static/${name}.gif`)"
     />
   </div>
@@ -49,9 +51,10 @@ export default {
 
 .main {
   font-family: "Metropolis";
+  text-align: center;
 }
 .step {
-  padding-bottom: 7px;
+  padding-bottom: 10px;
   font-size: 17px;
 }
 </style>

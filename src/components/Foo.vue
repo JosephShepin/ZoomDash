@@ -13,13 +13,13 @@
     <br />
     <div
       class=""
-      style="display: flex; justify-content: space-around; flex-wrap: wrap"
+      style="display: flex; justify-content: space-around; flex-wrap: wrap; max-width:1200px; margin:auto;"
     >
       <InstallCard
         class="col"
         buttonLabel="Open"
         notes="No download needed"
-        title="Browser"
+        title="Online"
         v-on:download="$router.push('app')"
         image="browser"
       />

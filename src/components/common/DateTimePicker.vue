@@ -189,13 +189,10 @@ export default {
       var s = this.complete;
       var min = this.minute;
       var hour = this.hour;
-      //console.log(s);
       if (this.minute.toString() == "00") {
         min = 0;
       }
-      console.log((this.minute.toString().length > 1))
         if ((this.minute.toString().length > 1) && (this.minute.toString().substring(0,1) == "0")) {
-          console.log("YES")
         min = this.minute.toString() % 10;
       }
       min = parseInt(min);

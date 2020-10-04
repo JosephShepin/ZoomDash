@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App.vue';
 import router from './router'
 import VueAnalytics from 'vue-analytics';
+import VueNativeNotification from 'vue-native-notification'
 
 Vue.config.productionTip = false
 
@@ -13,6 +14,12 @@ Vue.use(VueAnalytics, {
   id: 'UA-131485297-2',
   router
 }),
+
+Vue.use(VueNativeNotification, {
+  // Automatic permission request before
+  // showing notification (default: true)
+  requestOnNotify: true
+})
 
 new Vue({
   el: '#app',

@@ -51,7 +51,7 @@
       <br />
       <div class="privacy-card">
         <div class="mini-title">
-          We believe your data is yours, not ours for that reason, we do not
+          We do not
           store any of your data at all. It is all stored on your browser. To
           clear it out, change your cookie settings or clear your browsing data.
         </div>

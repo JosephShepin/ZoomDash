@@ -42,7 +42,7 @@
           <segmented-control
             :light="light"
             style="margin-right: 23px; margin-top: 9px; "
-            :icons="[icons.faAdjust,]"
+            :icons="[icons.faCog,icons.faAdjust]"
           />
         </div>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="" style="flex-basis: 150px">
+  <div class="" style="flex-basis: 150px; max-width:400px;">
     <img :src="require(`../../static/${image}.png`)" width="50" />
     <br />
     <br />
