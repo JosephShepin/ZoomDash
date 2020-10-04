@@ -1,15 +1,34 @@
 <template>
-<div class="" style="flex-basis: 150px;">
+  <div class="" style="flex-basis: 150px">
     <img :src="require(`../../static/${image}.png`)" width="50" />
     <br />
     <br />
 
+
     <div style="font-size: 23px">{{ title }}</div>
-    <p class="notes">{{ notes }}</p>
-    <br />
+
+    <div v-if="image == 'browser'">
+      <br>
+
+      <img
+        class=""
+        style="padding-right: 20px"
+        src="../../static/browsers.png"
+        width="150"
+      />
+      <p class="notes">{{ notes }}</p>
+
+    </div>
+    <div v-else>
+<p class="notes">{{ notes }}</p>
+
+    </div>
+
+    
+    
 
     <div v-if="image == 'mac' || image == 'windows'">
-      <div @click="$router.push('gif/'+image)">
+      <div @click="$router.push('gif/' + image)">
         <img
           @mouseenter="hover = true"
           @mouseleave="hover = false"
@@ -51,9 +70,7 @@ export default {
       hover: false,
     };
   },
-  methods:{
-  
-  }
+  methods: {},
 };
 </script>
 
