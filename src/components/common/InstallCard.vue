@@ -9,7 +9,7 @@
     <br />
 
     <div v-if="image == 'mac' || image == 'windows'">
-      <div @click="router.push('gif/'+image)">
+      <div @click="$router.push('gif/'+image)">
         <img
           @mouseenter="hover = true"
           @mouseleave="hover = false"
@@ -17,7 +17,7 @@
           :src="require(`../../static/${image}.gif`)"
         />
         <div class="view-full" :style="{ opacity: hover ? '1' : '0.6' }">
-          View Full
+          View Full Instructions
         </div>
       </div>
     </div>
