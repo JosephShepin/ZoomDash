@@ -19,6 +19,7 @@
         class="col"
         style="border-color: #2e8cff"
         buttonLabel="Open"
+        notes="No download needed"
         title="Browser"
         v-on:download="$router.push('app')"
         image="browser"
@@ -27,7 +28,6 @@
         class="col"
         style="border-color: #2e8cff"
         buttonLabel="Download"
-        notes="Make sure to right click > open, then drag into applications folder"
         title="Mac"
         v-on:download="downloadMac()"
         image="mac"
@@ -38,8 +38,6 @@
         v-on:download="downloadWin()"
         style="border-color: #2e8cff"
         buttonLabel="Download"
-                notes="To access, unzip, drag the icon into your task bar or right click > create a shortcut"
-
         title="Windows"
         image="windows"
       />

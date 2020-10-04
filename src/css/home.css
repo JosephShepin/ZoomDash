@@ -104,7 +104,31 @@
 
 
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+  .img1 {
+    width: 1%;
+  }
+
+  .img3 {
+    width: 70%;
+  }
+
+
+  .pane2 {
+    height: 630px;
+  
+  }
+
+  
+  .dark-mode {
+    height: 550px;
+  }
+}
+
+
+
+
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
   .img1 {
     width: 60%;
   }
@@ -120,8 +144,6 @@
   }
 
   
-
-
   .dark-mode {
     height: 550px;
   }

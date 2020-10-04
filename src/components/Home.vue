@@ -116,9 +116,9 @@
     </div>
     <br />
     <div class="row1 miniwrapper">
-      <git-card style="flex: 1; min-width: 400px" />
+      <git-card style="flex: 1;" />
 
-      <div class="pane5" style="flex: 1; min-width: 400px">
+      <div class="pane5" style="flex: 1;">
         <div style="padding: 10px; text-align: center">
           <br />
           <font-awesome-icon
