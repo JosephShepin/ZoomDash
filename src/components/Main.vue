@@ -1,6 +1,11 @@
 <template >
   <div class="main">
-    <top-nav :showApp="false" :showLeft="false" :light="light" v-on:toggle="light = !light" />
+    <top-nav
+      :showApp="false"
+      :showLeft="false"
+      :light="light"
+      v-on:toggle="light = !light"
+    />
     <div id="app" style>
       <!--<p>all classes {{classes}}</p>
       <p>sorted classes {{sortedClasses}}</p>
@@ -15,7 +20,11 @@
         }"
       />
       <br />
-      <add-modal :light="light" :newClass="defaultClass" v-on:create-class="createClass($event)" />
+      <add-modal
+        :light="light"
+        :newClass="defaultClass"
+        v-on:create-class="createClass($event)"
+      />
       <div class style="margin: 5px 15px">
         <div
           v-if="!confirm"
@@ -27,11 +36,13 @@
         >
           <HeaderBar
             :light="light"
-            :greyed="(classes.length == 0) || (todayView && todayClasses.length == 0)"
+            :greyed="
+              classes.length == 0 || (todayView && todayClasses.length == 0)
+            "
             v-on:new-event="newClass()"
             v-on:change-information="changeInformation($event)"
           />
-          <div class style="margin-top:-8px;">
+          <div class style="margin-top: -8px">
             <div v-if="classes.length > 0">
               <div v-if="classes.length > 0">
                 <div class style="display: flex">
@@ -39,46 +50,87 @@
                     class="time-label"
                     @click="todayView = true"
                     :style="{ color: label1Color }"
-                  >Today</div>
+                  >
+                    Today
+                  </div>
                   <div
                     style="margin-left: 3px"
                     class="time-label"
                     :style="{ color: label2Color }"
                     @click="todayView = false"
-                  >All</div>
+                  >
+                    All
+                  </div>
                 </div>
               </div>
             </div>
             <div v-if="classes.length == 0">
               <br />
+              <img
+                class="image-center"
+                width="50"
+                :src="require(`../static/${getImage()}`)"
+              />
               <br />
               <div class="welcome">Welcome, get started by adding a class</div>
+
               <br />
             </div>
-            <div v-else-if="classes.length > 0 && todayClasses.length == 0 && todayView" class>
+            <div
+              v-else-if="
+                classes.length > 0 && todayClasses.length == 0 && todayView
+              "
+              class
+            >
               <br />
+
+              <img
+                class="image-center"
+                width="50"
+                :src="require(`../static/${getImage()}`)"
+              />
+              <br />
+
               <div class="welcome">All clear, nothing upcoming today</div>
+
               <br />
             </div>
-            <div v-for="c in todayView ? todayClasses : orderedClasses" :key="c.id">
+            <div
+              v-for="c in todayView ? todayClasses : orderedClasses"
+              :key="c.id"
+            >
               <class-card
-                :timeLabel="todayClasses.includes(c) ?  dateDifference(convertToDate(c), c) : nothingLabel"
+                :timeLabel="
+                  todayClasses.includes(c)
+                    ? dateDifference(convertToDate(c), c)
+                    : nothingLabel
+                "
                 :course="c"
                 :light="light"
                 :viewType="viewType"
-                v-on:launch-confirm="selectedCourse = $event; launchConfirm()"
+                v-on:launch-confirm="
+                  selectedCourse = $event;
+                  launchConfirm();
+                "
                 v-on:delete-class="deleteClass($event)"
                 v-on:save-settings="saveSettings($event)"
               />
             </div>
-            <div v-for="c in todayView ?  doneClasses : []" :key="'done' + c.id">
+            <div v-for="c in todayView ? doneClasses : []" :key="'done' + c.id">
               <class-card
                 :done="true"
-                :timeLabel="todayClasses.includes(c) ?  dateDifference(convertToDate(c), c) : nothingLabel"
+                :timeLabel="
+                  todayClasses.includes(c)
+                    ? dateDifference(convertToDate(c), c)
+                    : nothingLabel
+                "
                 :course="c"
                 :light="light"
                 :viewType="viewType"
-                v-on:launch-confirm="selectedCourse = $event; launchConfirm()"
+                v-on:launch-confirm="
+                  selectedCourse = $event;
+                  launchConfirm();
+                "
                 v-on:delete-class="deleteClass($event)"
                 v-on:save-settings="saveSettings($event)"
               />
@@ -94,19 +146,39 @@
               color: light ? 'black' : 'white',
             }"
           >
-
             <div class="confirm-div">
-            <div class="" style="font-size:35px; padding: 6px 0px;">{{todayClasses.includes(selectedCourse) ?  dateDifference(convertToDate(selectedCourse), selectedCourse) : nothingLabel}}</div>
+              <div class="" style="font-size: 35px; padding: 6px 0px">
+                {{
+                  todayClasses.includes(selectedCourse)
+                    ? dateDifference(
+                        convertToDate(selectedCourse),
+                        selectedCourse
+                      )
+                    : nothingLabel
+                }}
+              </div>
 
               <div class="confirm">{{ selectedCourse.name }}</div>
 
               <div
                 class
-                style="font-size: 15px; text-align: center; color: grey; padding: 10px 0px"
-              >{{dateString()}}</div>
+                style="
+                  font-size: 15px;
+                  text-align: center;
+                  color: grey;
+                  padding: 10px 0px;
+                "
+              >
+                {{ dateString() }}
+              </div>
               <br />
               <div class="join-meeting">
-                <div class style="position: relative; top: 12px; font-size:17px;">Join Meeting</div>
+                <div
+                  class
+                  style="position: relative; top: 12px; font-size: 17px"
+                >
+                  Join Meeting
+                </div>
               </div>
             </div>
           </div>
@@ -116,7 +188,9 @@
             class="dismiss"
             @click="confirm = false"
             :style="{ color: light ? 'gray' : 'white' }"
-          >Dismiss</div>
+          >
+            Dismiss
+          </div>
         </div>
       </div>
     </div>
@@ -148,7 +222,7 @@ class Class {
 
 export default {
   name: "Main",
-  data: function() {
+  data: function () {
     return {
       nothingLabel: "",
       light: true,
@@ -160,10 +234,10 @@ export default {
       confirm: false,
       viewType: 0,
       icons: {
-        faTimes
+        faTimes,
       },
       classes: [],
-      defaultClass: new Class("", "", [1, 1, 1, 1, 1, 0, 0], 12, 0, true, 0)
+      defaultClass: new Class("", "", [1, 1, 1, 1, 1, 0, 0], 12, 0, true, 0),
     };
   },
   components: {
@@ -172,7 +246,7 @@ export default {
     SettingsModal,
     HeaderBar,
     FontAwesomeIcon,
-    TopNav
+    TopNav,
   },
 
   destroyed() {
@@ -275,21 +349,21 @@ export default {
         }
       }
       return futureClasses;
-    }
+    },
   },
   watch: {
     classes: {
       handler() {
         localStorage.setItem("classes", JSON.stringify(this.classes));
       },
-      deep: true
+      deep: true,
     },
     light: {
       handler() {
         localStorage.setItem("light-mode", JSON.stringify(this.light));
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
 
   mounted() {
@@ -305,6 +379,17 @@ export default {
   },
 
   methods: {
+    getImage() {
+      var today = new Date();
+      var curHr = today.getHours();
+
+      if (curHr < 18) {
+        return this.light ? "sun-light.png" : "sun-dark.png";
+      } else {
+        return this.light ? "moon-light.png" : "moon-dark.png";
+      }
+    },
+
     dateDifference(end, c) {
       var now = new Date();
       // var end = new Date("End Time");
@@ -482,8 +567,8 @@ export default {
     },
     changeInformation(event) {
       this.viewType = event;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -496,6 +581,11 @@ export default {
 
 .main {
   font-family: "Metropolis";
+}
+.image-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
 

@@ -4,11 +4,10 @@
     <br />
     <br />
 
-
     <div style="font-size: 23px">{{ title }}</div>
 
     <div v-if="image == 'browser'">
-      <br>
+      <br />
 
       <img
         class=""
@@ -16,16 +15,10 @@
         src="../../static/browsers.png"
         width="150"
       />
-      <p class="notes">{{ notes }}</p>
-
     </div>
     <div v-else>
-<p class="notes">{{ notes }}</p>
-
+      <p class="notes">{{ notes }}</p>
     </div>
-
-    
-    
 
     <div v-if="image == 'mac' || image == 'windows'">
       <div @click="$router.push('gif/' + image)">
