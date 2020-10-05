@@ -188,7 +188,7 @@
           <br />
           <div
             class="dismiss"
-            @click="confirm = false"
+            @click="confirm = false;  showNotification = true;"
             :style="{ color: light ? 'gray' : 'white' }"
           >
             Dismiss
@@ -453,30 +453,32 @@ export default {
             },
             events: {
               onerror: function () {
-                console.log("Custom error event was called");
               },
               onclick: () => {
                 this.confirm = false;
+                this.showNotification = true;
                 window.open(c.link);
-                console.log("Custom click event was called");
+                // console.log("Custom click event was called");
               },
               onshow: function () {
-                console.log("Custom show event was called");
               },
             },
           };
           console.log("showing notification");
+           this.showNotification = false;
           this.$notification.show(
             notification.title,
             notification.options,
             notification.events
           );
-          this.showNotification = false;
         } else {
+
         }
         return "OPEN";
+      }else{
+
       }
-      this.showNotification = true;
+      // this.showNotification = true;
       if (end < now) {
         // return ""
         return "-";
@@ -496,6 +498,7 @@ export default {
     },
 
     openZoom() {
+      this.showNotification = true;
       this.confirm = false;
       window.open(this.selectedCourse.link);
     },
