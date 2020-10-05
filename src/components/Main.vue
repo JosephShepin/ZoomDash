@@ -9,11 +9,11 @@
     />
 
     <div id="app" style>
-      <!--<p>all classes {{classes}}</p>
+      <p>all classes {{classes}}</p>
       <p>sorted classes {{sortedClasses}}</p>
       <p>Today classes {{todayClasses}}</p>
-      <p>future classes {j{futureClasses}}</p>
-      <p>ordered classes {{orderedClasses}}</p>-->
+      <p>future classes {{futureClasses}}</p>
+      <p>ordered classes {{orderedClasses}}</p>
       <main-settings-modal
       v-on:toggle="light = !light"
       :light="light"
@@ -86,7 +86,7 @@
 
               <br />
             </div>
-            <div v-for="c in todayView ? todayClasses : orderedClasses" :key="c.id">
+            <div v-for="c in todayView ? todayClasses : classes" :key="c.id">
               <class-card
                 :timeLabel="
                   todayClasses.includes(c)
