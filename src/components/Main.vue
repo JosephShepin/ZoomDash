@@ -222,7 +222,6 @@ class Class {
     this.id = id;
   }
 }
-
 export default {
   name: "Main",
   data: function () {
@@ -253,7 +252,6 @@ export default {
     FontAwesomeIcon,
     TopNav,
   },
-
   destroyed() {
     clearInterval(this.interval);
   },
