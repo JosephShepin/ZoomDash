@@ -1,11 +1,9 @@
 <template>
-  <div class="" style="flex-basis: 150px; max-width:400px;">
+  <div class="" style="flex-basis: 150px; max-width: 400px">
     <img :src="require(`../../static/${image}.png`)" width="50" />
     <br />
     <br />
-
     <div style="font-size: 23px">{{ title }}</div>
-
     <div v-if="image == 'browser'">
       <br />
 
@@ -21,7 +19,7 @@
     </div>
 
     <div v-if="image == 'mac' || image == 'windows'">
-      <div @click="$router.push('gif/' + image)">
+      <div @click="$router.push('docs/' + image)">
         <img
           @mouseenter="hover = true"
           @mouseleave="hover = false"
