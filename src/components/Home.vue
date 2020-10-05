@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <top-nav />
+    <top-nav/>
     <div class="wrapper">
       <div class="spacer"></div>
       <div class="row1 miniwrapper">

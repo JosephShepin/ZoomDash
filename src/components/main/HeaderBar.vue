@@ -8,17 +8,14 @@
           v-on:segmented-control-click="newClass()"
           :icons="[icons.faPlus]"
         />
-        <!--<segmented-control
-          :light="light"
-          :greyed="greyed"
-          v-on:segmented-control-click="changeInformation($event)"
-          :icons="[icons.faClock, icons.faLink]"
-        />-->
+  
       </div>
     </div>
   </div>
 </template>
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 import {
   faClock,
   faLink,
@@ -29,7 +26,8 @@ import SegmentedControl from "../common/SegmentedControl.vue";
 
 export default {
   components: {
-    SegmentedControl
+    SegmentedControl,
+    FontAwesomeIcon
   },
 
   props: {
@@ -52,9 +50,6 @@ export default {
     newClass() {
       this.$emit("new-event");
     },
-    changeInformation(event) {
-      this.$emit("change-information", event);
-    }
   },
   data: function() {
     return {

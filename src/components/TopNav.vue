@@ -38,11 +38,11 @@
         </router-link>
       </div>
       <div v-else>
-        <div @click="toggle()">
+        <div @click="$emit('open-settings')">
           <segmented-control
             :light="light"
             style="margin-right: 23px; margin-top: 9px; "
-            :icons="[icons.faCog,icons.faAdjust]"
+            :icons="[icons.faCog]"
           />
         </div>
       </div>

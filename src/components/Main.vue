@@ -1,12 +1,25 @@
 <template >
   <div class="main">
-    <top-nav :showApp="false" :showLeft="false" :light="light" v-on:toggle="light = !light" />
+    <top-nav
+      :showApp="false"
+      :showLeft="false"
+      :light="light"
+      v-on:toggle="light = !light"
+      v-on:open-settings="mainSettingsModal = true;"
+    />
+
     <div id="app" style>
       <!--<p>all classes {{classes}}</p>
       <p>sorted classes {{sortedClasses}}</p>
       <p>Today classes {{todayClasses}}</p>
       <p>future classes {j{futureClasses}}</p>
       <p>ordered classes {{orderedClasses}}</p>-->
+      <main-settings-modal
+      v-on:toggle="light = !light"
+      :light="light"
+        v-on:close-modal="mainSettingsModal = false;"
+        :style="{'display': mainSettingsModal ? 'block':'none'}"
+      />
       <div
         class="background-block"
         :style="{
@@ -31,7 +44,6 @@
               classes.length == 0 || (todayView && todayClasses.length == 0)
             "
             v-on:new-event="newClass()"
-            v-on:change-information="changeInformation($event)"
           />
           <div class style="margin-top: -8px">
             <div v-if="classes.length > 0">
@@ -83,7 +95,6 @@
                 "
                 :course="c"
                 :light="light"
-                :viewType="viewType"
                 v-on:launch-confirm="
                   selectedCourse = $event;
                   launchConfirm();
@@ -102,7 +113,6 @@
                 "
                 :course="c"
                 :light="light"
-                :viewType="viewType"
                 v-on:launch-confirm="
                   selectedCourse = $event;
                   launchConfirm();
@@ -174,6 +184,7 @@ import AddModal from "./modals/AddModal.vue";
 import SettingsModal from "./modals/SettingsModal.vue";
 import ClassCard from "./cards/ClassCard.vue";
 import TopNav from "./TopNav.vue";
+import MainSettingsModal from "./modals/MainSettingsModal.vue";
 
 class Class {
   constructor(name, link, selectedDays, hour, minute, isAm, id) {
@@ -192,6 +203,7 @@ export default {
   data: function() {
     return {
       nothingLabel: "",
+      mainSettingsModal: false,
       light: true,
       showNotification: true,
       last: [],
@@ -200,7 +212,6 @@ export default {
       interval: null,
       selectedCourse: new Class("", "", [1, 1, 1, 1, 1, 0, 0], 12, 0, true, 0),
       confirm: false,
-      viewType: 0,
       icons: {
         faTimes
       },
@@ -211,6 +222,7 @@ export default {
   components: {
     ClassCard,
     AddModal,
+    MainSettingsModal,
     SettingsModal,
     HeaderBar,
     FontAwesomeIcon,
@@ -404,12 +416,7 @@ export default {
       var I = `${minutes < 10 && hours > 0 ? "0" : ""}${minutes}:`;
       var S = `${seconds < 10 ? "0" : ""}${seconds}`;
 
-      if (
-        days == 0 &&
-        hours == 0 &&
-        minutes == 0 &&
-        seconds == 0
-      ) {
+      if (days == 0 && hours == 0 && minutes == 0 && seconds == 0) {
         this.selectedCourse = c;
         this.launchConfirm();
 
@@ -559,9 +566,6 @@ export default {
 
     newClass() {
       document.getElementById("myModal").style.display = "block";
-    },
-    changeInformation(event) {
-      this.viewType = event;
     }
   }
 };
