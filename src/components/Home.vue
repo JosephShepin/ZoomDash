@@ -86,14 +86,23 @@
           <div>
             <div class="title">Open Zoom Links Quickly</div>
             <br />
-            <div class="subtitle">Join meetings conveniently with popups</div>
+          
+            <div class="subtitle">Join meetings conveniently with popups and notifications</div>
             <br />
             <ul>
-              <li>Custom dates and times</li>
+              <li>Desktop Notifications</li>
               <li>Automatic countdown timers</li>
               <li>Daily schedule</li>
             </ul>
+              <img
+              class=""
+              style=" border-radius:8px;"
+              src="../static/notification.png"
+              width="300"
+            />
           </div>
+
+          
           <img class="img2" src="../static/img2.png" />
         </div>
       </div>
