@@ -25,10 +25,10 @@
           </div>
           <div
             @click="checkPermission()"
-            style="background-color:#2ECC71; margin-left:6px;"
+            style="background-color:#2ECC71; margin-left:6px; padding:0px 5px;"
             class="big-btn"
           >
-            <div class="button-label">Check Again</div>
+            <div class="button-label">Check Permission</div>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@ export default {
 
     test() {
       const notification = {
-        title: "Congrats, it works",
+        title: "Yay, Click me to confirm",
         options: {
           body: "This is a test notification from zoomdash"
         },

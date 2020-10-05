@@ -9,11 +9,12 @@
     />
 
     <div id="app" style>
-      <!--<p>all classes {{classes}}</p>
-      <p>sorted classes {{sortedClasses}}</p>
-      <p>Today classes {{todayClasses}}</p>
-      <p>future classes {j{futureClasses}}</p>
-      <p>ordered classes {{orderedClasses}}</p>-->
+      <!-- <p>all classes {{ classes }}</p>
+      <p>sorted classes {{ sortedClasses }}</p>
+      <p>done classes {{ doneClasses }}</p>
+      <p>Today classes {{ todayClasses }}</p>
+      <p>future classes {{ futureClasses }}</p>
+      <p>ordered classes {{ orderedClasses }}</p> -->
       <main-settings-modal
         v-on:toggle="light = !light"
         :light="light"
@@ -317,6 +318,8 @@ export default {
     },
 
     doneClasses() {
+      var s = this.count;
+
       var doneClasses = [];
       for (var x of this.sortedClasses) {
         if (
