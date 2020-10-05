@@ -44,8 +44,9 @@
 }
 
 .img2 {
-  margin-top: 40px;
-  border: solid grey 1px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
+  /* border: solid grey 1px; */
+  max-width: 550px;
   border-radius: 10px;
   width: 40%;
   height: 40%;
@@ -105,31 +106,9 @@
 
 
 
-@media only screen and (min-width: 0px) and (max-width: 600px) {
-  .img1 {
-    width: 1%;
-  }
-
-  .img3 {
-    width: 70%;
-  }
 
 
-  .pane2 {
-    height: 630px;
-  
-  }
-
-  
-  .dark-mode {
-    height: 550px;
-  }
-}
-
-
-
-
-@media only screen and (min-width: 600px) and (max-width: 1200px) {
+@media only screen and (max-width: 1100px) {
   .img1 {
     width: 60%;
   }
@@ -140,14 +119,14 @@
 
 
   .pane2 {
-    height: 630px;
+    height: 730px;
   
   }
 
   
-  .dark-mode {
+  /* .dark-mode {
     height: 550px;
-  }
+  } */
 }
 
 .routerLink {

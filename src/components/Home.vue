@@ -94,12 +94,12 @@
               <li>Automatic countdown timers</li>
               <li>Daily schedule</li>
             </ul>
-              <img
+              <!-- <img
               class=""
               style=" border-radius:8px;"
               src="../static/notification.png"
               width="300"
-            />
+            /> -->
           </div>
 
           
