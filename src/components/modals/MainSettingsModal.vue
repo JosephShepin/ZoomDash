@@ -4,8 +4,7 @@
       <span class="close" @click="closeModal()">&times;</span>
       <div style="max-width:485px; padding-left:1px">
         <h1 class="modal-title">Settings</h1>
-        <br />
-        <div class="setting">Theme</div>
+        <div class="setting">Color Theme</div>
         <hr />
         <div @click="$emit('toggle')">
           <segmented-control style="width:50px; margin-left:0px;" :icons="[icons.faAdjust]" />
@@ -13,7 +12,7 @@
         <br />
         <br />
 
-        <div class="setting">Desktop Notifications</div>
+        <div class="setting">Desktop Notifications (Desktop Only)</div>
         <hr />
         <p>Permission Status: {{permission.substring(0,1).toUpperCase() + permission.substring(1)}}</p>
         <div
@@ -25,14 +24,13 @@
           </div>
           <div
             @click="checkPermission()"
-            style="background-color:#2ECC71; margin-left:6px;"
+            style="background-color:#2ECC71; margin-left:6px; padding:0px 5px;"
             class="big-btn"
           >
-            <div class="button-label">Check Again</div>
+            <div class="button-label">Check Permission</div>
           </div>
         </div>
       </div>
-      <br />
     </div>
   </div>
 </template>
@@ -59,7 +57,7 @@ export default {
 
   data: function() {
     return {
-      permission: "",
+      permission: "Unknown",
       permissionLabel: "",
       icons: {
         faAdjust
@@ -74,12 +72,13 @@ export default {
 
     test() {
       const notification = {
-        title: "Congrats, it works",
+        title: "Yay, Click me to confirm",
         options: {
           body: "This is a test notification from zoomdash"
         },
         events: {
           onclick: () => {
+            this.permission = "Granted"
             this.permissionLabel = "Test completed successfully";
           },
           onshow: () => {

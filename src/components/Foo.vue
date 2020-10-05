@@ -6,7 +6,7 @@
     <div class="title">Install</div>
     <br />
     <div class="subtitle">
-      Download and install dash on your computer or browser
+      Download and install Dash on your computer or browser
     </div>
 
     <br />

@@ -17,7 +17,7 @@ export default new Router({
     { path: '/', component: Home },
     { path: '/app', component: Main },
     { path: '/privacy', component: Privacy },
-    { path: '/gif/:name', component: Gif, props: true },
+    { path: '/docs/:name', component: Gif, props: true },
     { path: '/install', component: Foo },
     { path: '*', component: NotFound }
 

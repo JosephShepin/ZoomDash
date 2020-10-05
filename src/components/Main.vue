@@ -5,20 +5,21 @@
       :showLeft="false"
       :light="light"
       v-on:toggle="light = !light"
-      v-on:open-settings="mainSettingsModal = true;"
+      v-on:open-settings="mainSettingsModal = true"
     />
 
     <div id="app" style>
-      <p>all classes {{classes}}</p>
-      <p>sorted classes {{sortedClasses}}</p>
-      <p>Today classes {{todayClasses}}</p>
-      <p>future classes {{futureClasses}}</p>
-      <p>ordered classes {{orderedClasses}}</p>
+      <!-- <p>all classes {{ classes }}</p>
+      <p>sorted classes {{ sortedClasses }}</p>
+      <p>done classes {{ doneClasses }}</p>
+      <p>Today classes {{ todayClasses }}</p>
+      <p>future classes {{ futureClasses }}</p>
+      <p>ordered classes {{ orderedClasses }}</p> -->
       <main-settings-modal
-      v-on:toggle="light = !light"
-      :light="light"
-        v-on:close-modal="mainSettingsModal = false;"
-        :style="{'display': mainSettingsModal ? 'block':'none'}"
+        v-on:toggle="light = !light"
+        :light="light"
+        v-on:close-modal="mainSettingsModal = false"
+        :style="{ display: mainSettingsModal ? 'block' : 'none' }"
       />
       <div
         class="background-block"
@@ -28,7 +29,11 @@
         }"
       />
       <br />
-      <add-modal :light="light" :newClass="defaultClass" v-on:create-class="createClass($event)" />
+      <add-modal
+        :light="light"
+        :newClass="defaultClass"
+        v-on:create-class="createClass($event)"
+      />
       <div class style="margin: 5px 15px">
         <div
           v-if="!confirm"
@@ -53,19 +58,27 @@
                     class="time-label"
                     @click="todayView = true"
                     :style="{ color: label1Color }"
-                  >Today</div>
+                  >
+                    Today
+                  </div>
                   <div
                     style="margin-left: 3px"
                     class="time-label"
                     :style="{ color: label2Color }"
                     @click="todayView = false"
-                  >All</div>
+                  >
+                    All
+                  </div>
                 </div>
               </div>
             </div>
             <div v-if="classes.length == 0">
               <br />
-              <img class="image-center" width="50" :src="require(`../static/${getImage()}`)" />
+              <img
+                class="image-center"
+                width="50"
+                :src="require(`../static/${getImage()}`)"
+              />
               <br />
               <div class="welcome">Welcome, get started by adding a class</div>
 
@@ -75,11 +88,14 @@
               v-else-if="
                 classes.length > 0 && todayClasses.length == 0 && todayView
               "
-              class
             >
               <br />
 
-              <img class="image-center" width="50" :src="require(`../static/${getImage()}`)" />
+              <img
+                class="image-center"
+                width="50"
+                :src="require(`../static/${getImage()}`)"
+              />
               <br />
 
               <div class="welcome">All clear, nothing upcoming today</div>
@@ -135,12 +151,12 @@
             <div class="confirm-div">
               <div class style="font-size: 35px; padding: 6px 0px">
                 {{
-                todayClasses.includes(selectedCourse)
-                ? dateDifference(
-                convertToDate(selectedCourse),
-                selectedCourse
-                )
-                : nothingLabel
+                  todayClasses.includes(selectedCourse)
+                    ? dateDifference(
+                        convertToDate(selectedCourse),
+                        selectedCourse
+                      )
+                    : nothingLabel
                 }}
               </div>
 
@@ -154,10 +170,17 @@
                   color: grey;
                   padding: 10px 0px;
                 "
-              >{{ dateString() }}</div>
+              >
+                {{ dateString() }}
+              </div>
               <br />
               <div class="join-meeting">
-                <div class style="position: relative; top: 12px; font-size: 17px">Join Meeting</div>
+                <div
+                  class
+                  style="position: relative; top: 12px; font-size: 17px"
+                >
+                  Join Meeting
+                </div>
               </div>
             </div>
           </div>
@@ -167,7 +190,9 @@
             class="dismiss"
             @click="confirm = false"
             :style="{ color: light ? 'gray' : 'white' }"
-          >Dismiss</div>
+          >
+            Dismiss
+          </div>
         </div>
       </div>
     </div>
@@ -200,7 +225,7 @@ class Class {
 
 export default {
   name: "Main",
-  data: function() {
+  data: function () {
     return {
       nothingLabel: "",
       mainSettingsModal: false,
@@ -213,10 +238,10 @@ export default {
       selectedCourse: new Class("", "", [1, 1, 1, 1, 1, 0, 0], 12, 0, true, 0),
       confirm: false,
       icons: {
-        faTimes
+        faTimes,
       },
       classes: [],
-      defaultClass: new Class("", "", [1, 1, 1, 1, 1, 0, 0], 12, 0, true, 0)
+      defaultClass: new Class("", "", [1, 1, 1, 1, 1, 0, 0], 12, 0, true, 0),
     };
   },
   components: {
@@ -226,7 +251,7 @@ export default {
     SettingsModal,
     HeaderBar,
     FontAwesomeIcon,
-    TopNav
+    TopNav,
   },
 
   destroyed() {
@@ -290,6 +315,8 @@ export default {
     },
 
     doneClasses() {
+      var s = this.count;
+
       var doneClasses = [];
       for (var x of this.sortedClasses) {
         if (
@@ -329,21 +356,21 @@ export default {
         }
       }
       return futureClasses;
-    }
+    },
   },
   watch: {
     classes: {
       handler() {
         localStorage.setItem("classes", JSON.stringify(this.classes));
       },
-      deep: true
+      deep: true,
     },
     light: {
       handler() {
         localStorage.setItem("light-mode", JSON.stringify(this.light));
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
 
   mounted() {
@@ -424,10 +451,10 @@ export default {
           const notification = {
             title: "Join " + c.name,
             options: {
-              body: "Click to open zoom"
+              body: "Click to open zoom",
             },
             events: {
-              onerror: function() {
+              onerror: function () {
                 console.log("Custom error event was called");
               },
               onclick: () => {
@@ -435,10 +462,10 @@ export default {
                 window.open(c.link);
                 console.log("Custom click event was called");
               },
-              onshow: function() {
+              onshow: function () {
                 console.log("Custom show event was called");
-              }
-            }
+              },
+            },
           };
           console.log("showing notification");
           this.$notification.show(
@@ -566,8 +593,8 @@ export default {
 
     newClass() {
       document.getElementById("myModal").style.display = "block";
-    }
-  }
+    },
+  },
 };
 </script>
 

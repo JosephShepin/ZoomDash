@@ -8,10 +8,18 @@
       <div class="logo">Dash</div>
     </router-link>
     <div v-if="showLeft">
-      <router-link class="routerLink" to="/privacy" style="margin-top:-5px">
+      <router-link
+        class="routerLink"
+        to="/privacy"
+        style="margin-top: -5px; margin-left: -10px"
+      >
         <a :style="{ color: light ? 'black' : 'white' }">Privacy</a>
       </router-link>
-        <router-link class="routerLink" to="/install" style="margin-top:-5px; margin-left:-10px;">
+      <router-link
+        class="routerLink"
+        to="/install"
+        style="margin-top: -5px; margin-left: -35px"
+      >
         <a :style="{ color: light ? 'black' : 'white' }">Install</a>
       </router-link>
     </div>
@@ -28,7 +36,9 @@
                 right: -10px;
                 font-weight: 500;
               "
-            >Open</div>
+            >
+              Open
+            </div>
             <font-awesome-icon
               style="position: relative; top: 7px; right: 10px"
               :icon="icons.faArrowRight"
@@ -41,7 +51,7 @@
         <div @click="$emit('open-settings')">
           <segmented-control
             :light="light"
-            style="margin-right: 23px; margin-top: 9px; "
+            style="margin-right: 23px; margin-top: 9px"
             :icons="[icons.faCog]"
           />
         </div>
@@ -52,32 +62,36 @@
 
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faAdjust, faArrowRight , faCog} from "@fortawesome/free-solid-svg-icons";
+import {
+  faAdjust,
+  faArrowRight,
+  faCog,
+} from "@fortawesome/free-solid-svg-icons";
 import SegmentedControl from "./common/SegmentedControl";
 export default {
   components: {
     SegmentedControl,
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
   props: {
     showApp: { required: false, default: true },
     light: { required: false, default: true },
-    showLeft: { required: false, default: true }
+    showLeft: { required: false, default: true },
   },
-  data: function() {
+  data: function () {
     return {
       icons: {
         faCog,
         faAdjust,
-        faArrowRight
-      }
+        faArrowRight,
+      },
     };
   },
   methods: {
     toggle() {
       this.$emit("toggle");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -113,7 +127,6 @@ export default {
 .spacer {
   height: 150px;
 }
-
 
 .logo {
   margin-right: -15px;
@@ -160,7 +173,7 @@ a:hover {
   border-radius: 40px;
   height: 30px;
   margin-right: -4px;
-  margin-top:-3px;
+  margin-top: -3px;
   padding: 5px;
   transition: all 0.2s ease-in-out;
 }
@@ -168,7 +181,6 @@ a:hover {
 .round-button:hover {
   transform: scale(1.02);
 }
-
 
 .title {
   font-size: 45px;
@@ -180,10 +192,9 @@ a:hover {
   color: grey;
 }
 
-.topnav{
+.topnav {
   padding-top: 5px;
-    margin: -8px;
-
+  margin: -8px;
 }
 
 .topnav a {
