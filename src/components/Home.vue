@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <top-nav/>
+    <top-nav />
     <div class="wrapper">
       <div class="spacer"></div>
       <div class="row1 miniwrapper">
@@ -42,7 +42,7 @@
               />
             </div>
           </router-link>
-<br>
+          <br />
           <br />
           <div class="" style="disply: flex">
             <img
@@ -86,23 +86,18 @@
           <div>
             <div class="title">Open Zoom Links Quickly</div>
             <br />
-          
-            <div class="subtitle">Join meetings conveniently with popups and notifications</div>
+
+            <div class="subtitle">
+              Join meetings conveniently with popups and notifications
+            </div>
             <br />
             <ul>
               <li>Desktop Notifications</li>
               <li>Automatic countdown timers</li>
               <li>Daily schedule</li>
             </ul>
-              <!-- <img
-              class=""
-              style=" border-radius:8px;"
-              src="../static/notification.png"
-              width="300"
-            /> -->
           </div>
 
-          
           <img class="img2" src="../static/img2.png" />
         </div>
       </div>
@@ -120,14 +115,15 @@
             </div>
           </div>
           <img class="img3" src="../static/img3.png" />
+          <img class="img3-mobile" src="../static/img3-mobile.png" />
         </div>
       </div>
     </div>
     <br />
     <div class="row1 miniwrapper">
-      <git-card style="flex: 1;" />
+      <git-card style="flex: 1" />
 
-      <div class="pane5" style="flex: 1;">
+      <div class="pane5" style="flex: 1">
         <div style="padding: 10px; text-align: center">
           <br />
           <font-awesome-icon

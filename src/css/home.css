@@ -3,7 +3,6 @@
   src: local("Metropolis"), url("../fonts/Metropolis-Medium.otf");
 }
 
-
 .home {
   font-family: "Metropolis";
 }
@@ -45,13 +44,11 @@
 
 .img2 {
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
-  /* border: solid grey 1px; */
   max-width: 550px;
   border-radius: 10px;
-  width: 40%;
-  height: 40%;
-  min-width: 500px;
-
+  width: 90%;
+  height: 90%;
+  min-width: 300px;
 }
 
 .img3 {
@@ -61,9 +58,21 @@
   border-radius: 10px;
 }
 
+.img3-mobile {
+  display: none;
+  width: 70%;
+  height: 70%;
+  max-width: 350px;
+  padding-top: 30px;
+  min-width: 300px;
+  border-radius: 10px;
+}
+
 .img1 {
-  width: 40%;
-  min-width: 500px;
+  max-width: 550px;
+  height: 80%;
+  width: 80%;
+  min-width: 350px;
 }
 
 /* "open zoom links quickly" */
@@ -105,28 +114,26 @@
 }
 
 
+@media only screen and (max-width: 1200px) {
 
-
-
-@media only screen and (max-width: 1100px) {
-  .img1 {
-    width: 60%;
+  /* "dark mode" */
+  .pane3 {
+    height: 450px;
   }
 
   .img3 {
-    width: 70%;
+    display: none;
   }
 
+
+  .img3-mobile {
+    display: block;
+  }
 
   .pane2 {
     height: 730px;
-  
-  }
 
-  
-  /* .dark-mode {
-    height: 550px;
-  } */
+  }
 }
 
 .routerLink {
