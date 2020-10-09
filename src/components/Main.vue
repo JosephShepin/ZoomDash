@@ -155,7 +155,7 @@
                     ? dateDifference(
                         convertToDate(selectedCourse),
                         selectedCourse
-                      )
+                      ).replaceAll("~","-")
                     : nothingLabel
                 }}
               </div>
@@ -188,7 +188,11 @@
           <br />
           <div
             class="dismiss"
-            @click="confirm = false;  showNotification = true;"
+            @click="
+              confirm = false;
+              showNotification = true;
+              dismissed = true;
+            "
             :style="{ color: light ? 'gray' : 'white' }"
           >
             Dismiss
@@ -229,6 +233,7 @@ export default {
       nothingLabel: "",
       mainSettingsModal: false,
       light: true,
+      dismissed: false,
       showNotification: true,
       last: [],
       todayView: true,
@@ -441,8 +446,19 @@ export default {
       var I = `${minutes < 10 && hours > 0 ? "0" : ""}${minutes}:`;
       var S = `${seconds < 10 ? "0" : ""}${seconds}`;
 
+      if (totalD < 60 * 15) {
+        if (this.selectedCourse.name == "") {
+          this.selectedCourse = c;
+        }
+      }
+
+      if (totalD < 60 * 2 && !this.dismissed) {
+        this.launchConfirm();
+      }
       if (days == 0 && hours == 0 && minutes == 0 && seconds == 0) {
         this.selectedCourse = c;
+        this.dismissed = true;
+
         this.launchConfirm();
 
         if (this.showNotification) {
@@ -452,39 +468,49 @@ export default {
               body: "Click to open zoom",
             },
             events: {
-              onerror: function () {
-              },
+              onerror: function () {},
               onclick: () => {
                 this.confirm = false;
                 this.showNotification = true;
                 window.open(c.link);
                 // console.log("Custom click event was called");
               },
-              onshow: function () {
-              },
+              onshow: function () {},
             },
           };
-          console.log("showing notification");
-           this.showNotification = false;
+          // console.log("showing notification");
+          this.showNotification = false;
           this.$notification.show(
             notification.title,
             notification.options,
             notification.events
           );
         } else {
-
         }
         return "OPEN";
-      }else{
-
+      } else {
       }
       // this.showNotification = true;
+      var totalPast = (now - end) / 1000;
+      if (end < now && totalPast < 5 * 60) {
+        var secsPast = Math.floor(totalPast % 60);
+        var minPast = Math.floor(totalPast / 60);
+        // return ""
+
+        return `~${minPast == 0 ? "0" : ""}${minPast}:${
+          secsPast < 10 ? "0" : ""
+        }${secsPast}`;
+      }
+
       if (end < now) {
         // return ""
         return "-";
       }
 
       if (totalD < 60 * 15) {
+        if (this.selectedDays == null) {
+          this.selectedDay = c;
+        }
         return D + H + I + S;
       } else {
         return "";
@@ -504,6 +530,7 @@ export default {
     },
 
     launchConfirm() {
+      this.dismissed = true;
       this.confirm = true;
     },
 

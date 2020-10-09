@@ -134,6 +134,8 @@ export default {
 .big-btn {
   height: 40px;
   width: 150px;
+  margin-left:-3px;
+  margin-bottom: -3px;
   border-radius: 7px;
   transition: all 0.15s ease-in-out;
 }
