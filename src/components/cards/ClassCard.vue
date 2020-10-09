@@ -2,7 +2,7 @@
   <div class>
     <div v-if="timeLabel.length > 1">
       <div v-if="timeLabel.indexOf('~') > -1">
-        <p style="margin-bottom: 11px">Meeting started {{ timeLabel.replaceAll("~","-") }} ago</p>
+        <p style="margin-bottom: 11px">Meeting started {{ timeLabel.replaceAll("~","") }} ago</p>
       </div>
       <div v-else>
         <p style="margin-bottom: 11px">Meeting starting in {{ timeLabel }}</p>

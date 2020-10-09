@@ -497,7 +497,7 @@ export default {
         var minPast = Math.floor(totalPast / 60);
         // return ""
 
-        return `~${minPast == 0 ? "0" : ""}${minPast}:${
+        return `~${minPast}:${
           secsPast < 10 ? "0" : ""
         }${secsPast}`;
       }
