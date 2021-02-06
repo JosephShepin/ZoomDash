@@ -9,7 +9,7 @@
             <div class="title">Welcome to ZoomDash</div>
             <br />
             <div class="subtitle">
-              The easiest and most secure zoom-link organizer for students
+              The easiest and most secure zoom-link organizer for all students
             </div>
           </div>
           <br />
