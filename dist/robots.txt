@@ -1,2 +1,0 @@
-User-agent: *
-sitemap: https://zoomdash.web.app/sitemap.xml
