@@ -1,8 +1,8 @@
-# Welcome to [ZoomDash](https://upbeat-poitras-08b27b.netlify.app/)
+# Welcome to [ZoomDash](https://zoomdash.netlify.app/)
 
 >A simple zoom-link manager for students and teachers. 
 
-![zoomdash](https://zoomdash-jshepin.vercel.app/)
+![zoomdash](https://i.ibb.co/cTb5jVB/img1.png)
 
 ## Build Setup
 
