@@ -21,6 +21,7 @@ yarn-error.log*
 */npm-debug.log
 lerna-debug.log
 *~
+.firebaserc
 service-account-credentials.json
 **/ui-debug.log
 **/database-debug.log
