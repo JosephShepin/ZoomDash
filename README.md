@@ -2,7 +2,7 @@
 
 >A simple zoom-link manager for students and teachers. 
 
-![zoomdash](https://i.ibb.co/cTb5jVB/img1.png)
+![zoomdash](https://zoomdash-jshepin.vercel.app/)
 
 ## Build Setup
 
