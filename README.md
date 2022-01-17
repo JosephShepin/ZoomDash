@@ -1,4 +1,4 @@
-# Welcome to [ZoomDash](https://zoomdash.web.app)
+# Welcome to [ZoomDash](https://upbeat-poitras-08b27b.netlify.app/)
 
 >A simple zoom-link manager for students and teachers. 
 
