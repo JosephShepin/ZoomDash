@@ -156,7 +156,7 @@
                 "
                 :style="{ transform: hover ? 'scale(1.05)' : 'scale(1.0)' }"
               >
-                Learn More
+                Learn More!
               </div>
             </div>
           </router-link>
